@@ -24,7 +24,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @Override
     public MyViewholder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_view, parent, true);
 
         return new MyViewholder(view);
     }
@@ -32,12 +33,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewholder holder, int position) {
 
-        holder.id.setText(Integer.toString(arrayList.get(position).getId()));
+        holder.id.setText( Integer.toString( arrayList.get(position).getId() ) );
         holder.message.setText(arrayList.get(position).getMessage());
     }
 
     @Override
     public int getItemCount() {
+
         return arrayList.size();
     }
 
@@ -49,8 +51,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
             super(itemView);
 
-            id = (TextView) itemView.findViewById(R.id.txtId);
-            message = (TextView) itemView.findViewById(R.id.txtMessage);
+            id = itemView.findViewById(R.id.txtId);
+            message = itemView.findViewById(R.id.txtMessage);
         }
     }
 }

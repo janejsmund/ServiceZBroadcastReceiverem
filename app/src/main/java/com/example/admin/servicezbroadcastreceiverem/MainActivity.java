@@ -35,8 +35,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        emptyTV = (TextView) findViewById(R.id.emptyTV);
+        recyclerView = findViewById(R.id.recyclerView);
+        emptyTV = findViewById(R.id.emptyTV);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -58,6 +58,7 @@ public class MainActivity extends Activity {
     private void readFromDb() {
 
         arrayList.clear();
+
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         Cursor cursor = dbHelper.readMessage(database);
